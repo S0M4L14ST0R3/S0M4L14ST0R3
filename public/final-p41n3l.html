@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - S0M4L14 ST0R3</title>
+    <link rel="icon" href="https://S0M4L14ST0R3.github.io/S0M4L14ST0R3/favicon.ico" type="image/x-icon">
+
+    <style>
+:root {
+    --primary: #0a0a1a;
+    --secondary: #1a1a2a;
+    --accent: #db0909;
+    --accent-secondary: #2f09db;
+    --text: #ffffff;
+    --text-secondary: #bbbbbb;
+    --bg: #121212;
+    --bg-secondary: #1e1e1e;
+    --card-bg: #1e1e1e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, var(--accent), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.header-subtitle {
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    opacity: 0.9;
+}
+
+.checkout-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.product-summary {
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(219,9,9,0.3);
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.product-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.product-details {
+    flex: 1;
+}
+
+.product-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+}
+
+.product-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.payment-options {
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px rgba(219,9,9,0.7);
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent), var(--accent-secondary));
+    border-radius: 3px;
+}
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    border: 1px solid rgba(219,9,9,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.payment-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid rgba(219,9,9,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+.payment-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+}
+
+.payment-card.active {
+    border-color: var(--accent-secondary);
+    box-shadow: 0 12px 35px rgba(47,9,219,0.5);
+}
+
+.payment-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+.payment-name {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.payment-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(47,9,219,0.4);
+}
+
+.instructions {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(30,30,30,0.7);
+    border-radius: 10px;
+    border-left: 4px solid var(--accent);
+}
+
+.instructions-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+.instructions-list {
+    padding-left: 1.5rem;
+}
+
+.instructions-list li {
+    margin-bottom: 0.8rem;
+    color: var(--text-secondary);
+}
+
+footer {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--text);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .product-summary {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .product-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-methods {
+        grid-template-columns: 1fr;
+    }
+}
+</Style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Mais Informações</h1>
+        <p class="header-subtitle">Escolha como deseja Receber mais Informações</p>
+        <a href="javascript:history.back()" class="btn-back">
+    <i class="fas fa-arrow-left"></i> Voltar
+</a>
+    </header>
+
+    <div class="checkout-container">
+        <div class="product-summary">
+            <img src="img/token.png" alt="Loja pronta" class="product-image">
+            <div class="product-details">
+                <h2 class="product-name">P41N3LS0M4L14</h2>
+                <div class="product-price">R$ 249,90</div>
+            </div>
+        </div>
+
+        <div class="payment-options">
+            <h2 class="section-title">Métodos de Contato</h2>
+            <p>Escolha abaixo como deseja receber mais informações sobre. Nosso suporte estará disponível em qualquer plataforma.</p>
+            
+            <div class="payment-methods">
+                <div class="payment-card discord active">
+                    <div class="payment-icon"><i class="fab fa-discord"></i></div>
+                    <h3 class="payment-name">Via Discord</h3>
+                    <p class="payment-description">Compre diretamente pelo nosso servidor de Discord com atendimento 24h</p>
+                    <a href="http://discord.gg/AGsJaVAWFR" class="btn btn-discord" target="_blank">
+                        <i class="fab fa-discord"></i> Entrar no Discord
+                    </a>
+                </div>
+                
+                <div class="payment-card discord active">
+                    <div class="payment-icon"><i class="fab fa-telegram"></i></div>
+                    <h3 class="payment-name">Via Telegram</h3>
+                    <p class="payment-description">Compre diretamente pelo nosso Telegram com atendimento 24h</p>
+                    <a href="https://t.me/s0m4l14p41n3l" class="btn btn-telegram" target="_blank">
+                        <i class="fab fa-telegram"></i> Contatar no Telegram
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <footer>
+        <div class="copyright">
+            &copy; 2025 S0M4L14 ST0R3. Todos os direitos reservados.
+            <div style="margin-top: 0.5rem;">
+                <i class="fas fa-lock"></i> Pagamentos seguros | <i class="fas fa-bolt"></i> Entrega imediata
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentCards = document.querySelectorAll('.payment-card');
+            
+            paymentCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    paymentCards.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            const productName = "Sites estáticos de alto desempenho";
+            const productPrice = "R$ 100,00";
+            
+            const whatsappBtn = document.querySelector('.btn-whatsapp');
+            whatsappBtn.href = `https://wa.me/11978863353?text=Olá,%20gostaria%20de%20comprar%20o%20${encodeURIComponent(productName)}%20(${encodeURIComponent(productPrice)})`;
+        });
+    </script>
+</body>
+</html>

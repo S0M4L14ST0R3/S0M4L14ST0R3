@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker - S0M4L14 ST0R3</title>
+    <link rel="icon" href="https://S0M4L14ST0R3.github.io/S0M4L14ST0R3/favicon.ico" type="image/x-icon">
+
+    <style>
+:root {
+    --primary: #0a0a1a;
+    --secondary: #1a1a2a;
+    --accent: #db0909;
+    --accent-secondary: #2f09db;
+    --text: #ffffff;
+    --text-secondary: #bbbbbb;
+    --bg: #121212;
+    --bg-secondary: #1e1e1e;
+    --card-bg: #1e1e1e;
+    --flag-blue: #4189DD;
+    --flag-white: #FFFFFF;
+    --flag-green: #5EBD3E;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--text);
+    line-height: 1.6;
+}
+
+
+header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+header h1 {
+    font-size: 3rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, var(--accent), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+.btn-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+
+.product-container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.product-media {
+    flex: 1;
+    min-width: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.product-video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+
+.product-video:hover {
+    transform: scale(1.05);
+}
+
+
+.product-info {
+    background: rgba(10,10,20,0.8);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(219,9,9,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.product-title {
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+    margin: 1rem 0;
+}
+
+.product-description {
+    color: #e0e0e0;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+
+.product-features {
+    margin-bottom: 1.5rem;
+}
+
+.product-features li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #e0e0e0;
+}
+
+.product-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+
+.product-specs {
+    margin-top: 2rem;
+    background: rgba(30,30,30,0.7);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent);
+}
+
+.spec-item {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.spec-label {
+    font-weight: bold;
+    width: 150px;
+    color: var(--accent);
+}
+
+.spec-value {
+    flex: 1;
+    color: var(--text-secondary);
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(47,9,219,0.4);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+footer {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--text);
+    padding: 4rem 1.5rem 2rem;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+footer .copyright {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+
+@media (max-width: 992px) {
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .product-title {
+        font-size: 1.5rem;
+    }
+
+    .product-price {
+        font-size: 1.2rem;
+    }
+}
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>S0M4L14 ST0R3</h1>
+        <p style="color: var(--text-secondary);">Ferramentas, Bots, Stores, Wallpapers, entre outros..</p>
+        <a href="javascript:history.back()" class="btn-back">
+    <i class="fas fa-arrow-left"></i> Voltar
+</a>
+    </header>
+
+    <div class="product-container">
+        <div class="product-media">
+            <video class="product-video" controls poster="img/tracker.png">
+                <source src="img/tracker.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </div>
+        
+        <div class="product-info">
+            <h1 class="product-title">Tracker Telefone, ip and Username</h1>
+            <div class="product-price">R$ 29,90</div>
+            
+                <p class="product-description">
+                Esta ferramenta multifuncional é projetada para coleta e análise de informações digitais essenciais:
+                números de telefone, endereços de IP e usernames em diversas plataformas. 
+                Ideal para contra-inteligência, segurança digital e mapeamento de perfis online.
+            </p>    
+                <ul class="product-features">
+                <li><strong>PhoneLockup:</strong> Valida números de telefone, identifica país, região, operadora e fuso horário.</li>
+                <li><strong>IP Geolocation:</strong> Localiza IPs, mostrando país, cidade, coordenadas geográficas, ISP e organização.</li>
+                <li><strong>Username Tracker:</strong> Verifica presença de usernames em múltiplas plataformas, incluindo GitHub, Instagram, Twitter, TikTok e mais.</li>
+                <li>Geração de relatórios claros e detalhados para análise estratégica.</li>
+                <li>Interface em terminal simples e interativa, pronta para uso em scripts de automação.</li>
+            </ul>
+            <div class="product-specs">
+                <div class="spec-item">
+                    <div class="spec-label">Tipo:</div>
+                    <div class="spec-value">Ferramenta Em Python</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Versão:</div>
+                    <div class="spec-value">1.0</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Requisitos:</div>
+                    <div class="spec-value">Windows 10/11, Python 3.14.0 </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Suporte:</div>
+                    <div class="spec-value">Via Discord (24h)</div>
+                </div>
+            </div>
+            
+            <a href="final-tracker.html" class="btn btn-block">Comprar Agora</a>
+            
+            <div style="margin-top: 1.5rem; text-align: center; color: var(--text-secondary); font-size: 0.9rem;">
+                <i class="fas fa-shield-alt" style="margin-right: 5px;"></i>
+                Pagamento seguro | Entrega digital imediata
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="copyright">
+            &copy; 2025 S0M4L14 ST0R3. Todos os direitos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>
