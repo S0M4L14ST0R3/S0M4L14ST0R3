@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S0M4L14 ST0R3 - Arsenal Digital</title>
+    <link rel="icon" href="https://S0M4L14ST0R3.github.io/S0M4L14ST0R3/favicon.ico" type="image/x-icon">
+        <style>
+        :root {
+            --primary: #0a0a1a;
+            --secondary: #1a1a2a;
+            --accent: #db0909;
+            --accent-secondary: #2f09db;
+            --text: #ffffff;
+            --text-secondary: #bbbbbb;
+            --bg: #121212;
+            --bg-secondary: #1e1e1e;
+            --card-bg: #1e1e1e;
+            --flag-blue: #4189DD;
+            --flag-white: #FFFFFF;
+            --flag-green: #5EBD3E;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 3px;
+            background: linear-gradient(to right, var(--accent), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .cyber-sub {
+            position: relative;
+            font-family: 'Courier New', monospace;
+            color: #00ff41;
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: rgba(0, 255, 65, 0.08);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+        }
+
+        nav {
+            background-color: rgba(30, 30, 30, 0.95);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            border: 1px solid transparent;
+        }
+
+        nav a:hover {
+            background-color: var(--accent);
+            color: var(--bg);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .nav-active {
+            background-color: var(--accent);
+            color: var(--bg);
+            border-color: var(--accent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(219, 9, 9, 0.7);
+            letter-spacing: 1px;
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-card {
+            background: rgba(10, 10, 20, 0.8);
+            border: 1px solid rgba(219, 9, 9, 0.3);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent), var(--accent-secondary));
+        }
+        
+        .about-header h3 {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-shadow: 0 0 8px rgba(219, 9, 9, 0.5);
+        }
+        
+        .about-text {
+            line-height: 1.7;
+        }
+        
+        .about-paragraph {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: #e0e0e0;
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .about-subtitle {
+            color: var(--accent-secondary);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .about-list {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+            color: #e0e0e0;
+        }
+        
+        .about-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+        
+        .about-list li::before {
+            content: '•';
+            color: var(--accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .about-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(219, 9, 9, 0.5), transparent);
+            margin: 2rem 0;
+        }
+        
+        .about-final {
+            text-align: center;
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            font-weight: bold;
+        }
+        
+        .about-postscript {
+            text-align: center;
+            font-style: italic;
+            color: #a0a0a0;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .about-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(47, 9, 219, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            margin-top: 3%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background: rgba(10, 10, 20, 0.8);
+            padding: 1.8rem;
+            border-radius: 8px;
+            border: 1px solid rgba(219, 9, 9, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+        
+        .service-card h3 {
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+        }
+        
+        .service-card p {
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+        
+        .service-card ul {
+            color: #e0e0e0;
+            margin-top: 1rem;
+            padding-left: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        .service-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: rgba(10, 10, 20, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(219, 9, 9, 0.3);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+                .product-card .btn {
+            margin-top: auto;
+        }
+        
+
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent);
+        }
+
+        .product-video-container {
+            position: relative;
+            padding-top: 56.25%;
+            overflow: hidden;
+        }
+
+        .product-video {
+            position: absolute;
+            border-radius: 5%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+        }
+
+        .product-title::before {
+            content: "•";
+            color: var(--accent);
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .product-description {
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .product-features {
+           flex-grow: 1;
+        }
+
+        .product-features li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+            color: #e0e0e0;
+        }
+
+        .product-features li::before {
+            content: "✓";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-top: 1rem;
+            margin-top: auto;
+        }
+
+        .fab-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            z-index: 9999;
+        }
+
+        .fab {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(219, 9, 9, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(219, 9, 9, 0.6);
+            text-decoration: none;
+        }
+
+        .fab .tooltip {
+            position: absolute;
+            right: 70px;
+            background: var(--bg-secondary);
+            color: var(--text);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            border: 1px solid rgba(219,9,9,0.3);
+            z-index: 10000;
+            text-decoration: none;
+        }
+
+        .fab:hover .tooltip {
+            opacity: 1;
+            right: 80px;
+        }
+
+        .fab i, .fab svg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .fab:focus {
+            outline: none;
+            border: none;
+        }
+
+        .fab * {
+            border-bottom: none !important;
+            text-decoration: none !important;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text);
+            padding: 4rem 1.5rem 2rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            display: inline-block;
+        }
+        .product-card {
+            background: rgba(10, 10, 20, 0.9);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(219, 9, 9, 0.3);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(219, 9, 9, 0.3);
+            border-color: var(--accent);
+        }
+
+        .product-image-container {
+            position: relative;
+            padding-top: 60%;
+            overflow: hidden;
+        }
+
+        .product-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .product-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+        }
+
+        .product-title::before {
+            content: "•";
+            color: var(--accent);
+            margin-right: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        .product-description {
+            color: #e0e0e0;
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 0.5rem 0 1rem 0;
+            text-align: center;
+        }
+
+        .product-card .btn {
+            margin-top: auto;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            transition: all 0.3s ease;
+        }
+
+        .product-card .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(219, 9, 9, 0.4);
+        }
+
+        /* Modal de preview */
+        .product-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 2rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            max-width: 900px;
+            margin: 2rem auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(219, 9, 9, 0.3);
+            position: relative;
+            border: 1px solid var(--accent);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            color: white;
+            background: rgba(219, 9, 9, 0.7);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10001;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            background: rgba(10, 10, 20, 0.9);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .modal-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .modal-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-description {
+            color: #e0e0e0;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-features {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-features li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+            color: #e0e0e0;
+        }
+
+        .modal-features li::before {
+            content: "✓";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+
+        .modal-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .modal-footer {
+            padding: 1.5rem;
+            background: rgba(10, 10, 20, 0.9);
+            border-top: 2px solid var(--accent);
+            text-align: center;
+        }
+
+        .modal-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .product-card {
+            animation: slideUp 0.5s ease;
+        }
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 0.2rem 0;
+        }
+
+        .footer-column a:hover {
+            color: var(--text);
+            transform: translateX(5px);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+        
+        .copyright2 {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @media (max-width: 992px) {
+            .about-container {
+                flex-direction: column;
+            }
+            
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-social {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .cyber-sub {
+                font-size: 1rem;
+            }
+            
+            nav a {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .about-card {
+                padding: 1.5rem;
+            }
+            
+            .about-header h3 {
+                font-size: 1.5rem;
+            }
+            
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>S0M4L14 ST0R3</h1>
+        <p class="cyber-sub">
+            <span class="terminal-line">>_ Ferramentas • Bots • Stores • Wallpapers</span>
+            <span class="terminal-cursor">_</span>
+        </p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" class="nav-link nav-active" data-section="home">Início</a></li>
+            <li><a href="#" class="nav-link" data-section="about">Sobre Nós</a></li>
+            <li><a href="#" class="nav-link" data-section="services">O que Vendemos</a></li>
+            <li><a href="#" class="nav-link" data-section="products">Produtos</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+<section id="home" class="section active">
+    <div class="hero-section">
+        <div class="hero-content">
+            <h2 class="hero-title">
+                DOMINE O CENÁRIO DIGITAL
+            </h2>
+            <p class="hero-text">
+                <span class="highlight">S0M4L14 ST0R3</span> – Arsenais digitais criados para enfrentar 
+                golpes, fraudes e servidores ilegais no Discord.<br><br>
+
+                Criamos <span class="highlight">bots</span> e <span class="highlight">scripts avançados</span> 
+                que funcionam como verdadeiras armas de contra-ataque: 
+                automatizados, potentes e implacáveis.<br><br>
+
+                <strong>O que você encontra aqui:</strong><br>
+                – Auto-Raids para derrubar servidores maliciosos<br>
+                – Spam Bots massivos para sufocar chats de fraude<br>
+                – Grabbers para rastrear predadores digitais<br>
+                – Crashers personalizados para operações de impacto<br><br>
+
+                Além disso, oferecemos <span class="highlight">thumbnails e wallpapers exclusivos</span> 
+                para fortalecer sua identidade visual com estilo e sigilo.<br><br>
+
+                Se o Discord não age, <span class="highlight">nós agimos</span>.
+            </p>
+            <div class="hero-actions">
+                <a href="#" class="btn" data-section="products">Explorar Produtos</a>
+                <a href="#" class="btn btn-outline" data-section="about">Conheça Nossa História</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="img/VideoCapture 2025-08-19 11.05.23.png" 
+                 alt="Tecnologia e Resistência Digital">
+        </div>
+    </div>
+</section>
+
+
+<section id="about" class="section">
+    <h2 class="section-title">A ORIGEM DA RESISTÊNCIA</h2>
+    
+    <div class="about-container">
+        <div class="about-content">
+            <div class="about-card">
+                <div class="about-header">
+                    <h3> S0M4L14 ST0R3: A Justiça Digital nas Sombras</h3>
+                </div>
+                
+                <div class="about-text">
+                    <p class="about-paragraph">
+                        Fundada em 2021, a S0M4L14 ST0R3 nasceu da revolta contra a impunidade que assola a web — especialmente nos cantos mais obscuros do Discord, onde criminosos agem sem medo, traficando dados, disseminando golpes e destruindo vidas. <span class="highlight">Nós somos a resposta.</span>
+                    </p>
+                    
+                    <div class="about-divider"></div>
+                    
+                    <h4 class="about-subtitle"> O Trauma Que Nos Move</h4>
+                    <p class="about-paragraph">
+                        Era uma madrugada qualquer quando tudo desmoronou. Um servidor de Discord, supostamente um "espaço seguro", tornou-se um campo de caça. Pessoas que eu considerava amigos foram doxeadas, ameaçadas, perseguidas. Contas bancárias esvaziadas, fotos íntimas vazadas, e um silêncio ensurdecedor da moderação. As plataformas não agiram. A justiça tradicional? Lenta demais.
+                    </p>
+                    <p class="about-paragraph">
+                        Foi ali, entre linhas de código e noites sem dormir, que entendi: <span class="highlight">se ninguém faria algo, nós faríamos.</span>
+                    </p>
+                    
+                    <div class="about-divider"></div>
+                    
+                    <h4 class="about-subtitle"> Nossa Missão: Limpar a Web, Uma Ferramenta de Cada Vez</h4>
+                    <p class="about-paragraph">
+                        Não somos vigilantes. Somos engenheiros da resistência digital, criando ferramentas que:
+                    </p>
+                    <ul class="about-list">
+                        <li>Automatizam a derrubada de servidores de golpes e vazamentos.</li>
+                        <li>Rastreiam e expõem criminosos que se escondem atrás de pseudônimos.</li>
+                        <li>Protegem comunidades contra raids, bots maliciosos e fraudes.</li>
+                    </ul>
+                    <p class="about-paragraph">
+                        Cada linha de código que escrevemos é um grito de guerra contra a ilegalidade. <span class="highlight">Não fazemos isso por fama ou dinheiro — fazemos porque alguém precisa segurar o fio da navalha.</span>
+                    </p>
+                    
+                    <div class="about-divider"></div>
+                    
+                    <h4 class="about-subtitle"> O Preço da Guerra</h4>
+                    <p class="about-paragraph">
+                        Já fomos ameaçados. Já tentaram nos invadir. Mas cada ataque só prova que estamos no caminho certo. Enquanto houver um scammer se escondendo atrás de um "é só um RPZINHO, relaxa" ou um predador caçando inocentes em servers "seguros", <span class="highlight">nós estaremos lá.</span>
+                    </p>
+                    
+                    <div class="about-divider"></div>
+                    
+                    <p class="about-final">
+                        A S0M4L14 ST0R3 não para. Não perdoa. E não recua.<br>
+                        <span class="highlight">Porque a web tem dono. E esse dono somos NÓS.</span>
+                    </p>
+                    
+                    <p class="about-postscript">
+                        (E sim, ainda temos pesadelos com aquela madrugada. Mas agora, em vez de chorar, codamos.)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="services" class="section">
+    <h2 class="section-title">Nossas Armas de Guerra Digital</h2>
+    
+    <div style="max-width: 900px; margin: 0 auto 3rem;">
+        <div style="background: linear-gradient(to right, rgba(219, 9, 9, 0.15), rgba(47, 9, 219, 0.15)); padding: 2rem; border-radius: 10px; border-left: 4px solid #db0909; margin-bottom: 2.5rem;">
+            <p style="font-size: 1.1rem; line-height: 1.8; text-align: center; color: var(--text-primary);">
+                <strong>NASCEMOS DA REVOLTA CONTRA A IMPUNIDADE DIGITAL</strong><br>
+                Cada ferramenta que desenvolvemos é uma resposta direta aos predadores que operam nas sombras do Discord e além. 
+                Não somos vigilantes - somos engenheiros da resistência digital.
+            </p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-top: 2rem;">
+            <div style="background: rgba(219, 9, 9, 0.08); padding: 1.8rem; border-radius: 8px; border: 1px solid rgba(219, 9, 9, 0.3); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
+                <h3 style="color: #db0909; margin-bottom: 1.2rem; font-size: 1.3rem;">Sistemas de Inteligência</h3>
+                <p style="color: var(--text-secondary); line-height: 1.7;">
+                    Ferramentas avançadas para identificar, rastrear e expor criminosos digitais que se escondem atrás de pseudônimos.
+                </p>
+                <ul style="color: var(--text-secondary); margin-top: 1rem; padding-left: 1.2rem; line-height: 1.6;">
+                    <li>Grabbers para coleta de inteligência</li>
+                    <li>Rastreamento de atividades suspeitas</li>
+                    <li>Análise de padrões de comportamento</li>
+                </ul>
+            </div>
+            
+            <div style="background: rgba(47, 9, 219, 0.08); padding: 1.8rem; border-radius: 8px; border: 1px solid rgba(47, 9, 219, 0.3); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
+                <h3 style="color: var(--accent); margin-bottom: 1.2rem; font-size: 1.3rem;">Operações de Contra-Ataque</h3>
+                <p style="color: var(--text-secondary); line-height: 1.7;">
+                    Sistemas automatizados para neutralizar ameaças em servidores Discord e derrubar operações criminosas.
+                </p>
+                <ul style="color: var(--text-secondary); margin-top: 1rem; padding-left: 1.2rem; line-height: 1.6;">
+                    <li>Bots de raid para desestabilização</li>
+                    <li>Contramedidas contra golpistas</li>
+                    <li>Sistemas de proteção comunitária</li>
+                </ul>
+            </div>
+            
+            <div style="background: rgba(9, 219, 146, 0.08); padding: 1.8rem; border-radius: 8px; border: 1px solid rgba(9, 219, 146, 0.3); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
+                <h3 style="color: #09db92; margin-bottom: 1.2rem; font-size: 1.3rem;">Infraestrutura de Resistência</h3>
+                <p style="color: var(--text-secondary); line-height: 1.7;">
+                    Plataformas seguras e resilientes para comunidades sob ameaça, com foco em privacidade e anonimato.
+                </p>
+                <ul style="color: var(--text-secondary); margin-top: 1rem; padding-left: 1.2rem; line-height: 1.6;">
+                    <li>Sites de comunicação segura</li>
+                    <li>Sistemas de camuflagem digital</li>
+                    <li>Proteção de identidade</li>
+                </ul>
+            </div>
+            
+            <div style="background: rgba(219, 147, 9, 0.08); padding: 1.8rem; border-radius: 8px; border: 1px solid rgba(219, 147, 9, 0.3); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
+                <h3 style="color: #db9309; margin-bottom: 1.2rem; font-size: 1.3rem;">Fortalecimento Comunitário</h3>
+                <p style="color: var(--text-secondary); line-height: 1.7;">
+                    Ferramentas para capacitar comunidades contra ataques coordenados, golpes e operações de má-fé.
+                </p>
+                <ul style="color: var(--text-secondary); margin-top: 1rem; padding-left: 1.2rem; line-height: 1.6;">
+                    <li>Lojas seguras para comunidades</li>
+                    <li>Sistemas de automação defensiva</li>
+                    <li>Recursos visuais de identidade</li>
+                </ul>
+            </div>
+            
+            <div style="background: rgba(147, 9, 219, 0.08); padding: 1.8rem; border-radius: 8px; border: 1px solid rgba(147, 9, 219, 0.3); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
+                <h3 style="color: #9309db; margin-bottom: 1.2rem; font-size: 1.3rem;">Clonagem Estratégica</h3>
+                <p style="color: var(--text-secondary); line-height: 1.7;">
+                    Tecnologia para replicar servidores de operações criminosas, permitindo análise e contra-inteligência.
+                </p>
+                <ul style="color: var(--text-secondary); margin-top: 1rem; padding-left: 1.2rem; line-height: 1.6;">
+                    <li>Duplicação de estruturas completas</li>
+                    <li>Preservação de evidências</li>
+                    <li>Análise de métodos operacionais</li>
+                </ul>
+            </div>
+            
+            <div style="background: rgba(9, 178, 219, 0.08); padding: 1.8rem; border-radius: 8px; border: 1px solid rgba(9, 178, 219, 0.3); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
+                <h3 style="color: #09b2db; margin-bottom: 1.2rem; font-size: 1.3rem;">Painel de Comando S0M4L14</h3>
+                <p style="color: var(--text-secondary); line-height: 1.7;">
+                    Centro de controle unificado para coordenação de operações de defesa digital e contra-ataques.
+                </p>
+                <ul style="color: var(--text-secondary); margin-top: 1rem; padding-left: 1.2rem; line-height: 1.6;">
+                    <li>Monitoramento em tempo real</li>
+                    <li>Coordenação de equipes</li>
+                    <li>Gestão de múltiplas operações</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="background: linear-gradient(to right, rgba(219, 9, 9, 0.1), rgba(47, 9, 219, 0.1)); padding: 2rem; border-radius: 10px; border: 1px solid rgba(219, 9, 9, 0.3); margin-top: 3rem; text-align: center;">
+            <h3 style="color: #db0909; margin-bottom: 1.2rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                <span></span> NOSSO JURAMENTO DIGITAL <span></span>
+            </h3>
+            <p style="color: var(--text-primary); line-height: 1.8; font-style: italic;">
+                "Não fazemos isso por fama ou dinheiro. Fazemos porque alguém precisa segurar o fio da navalha.<br>
+                Cada linha de código que escrevemos é um grito de guerra contra a ilegalidade.<br>
+                A S0M4L14 ST0R3 não para. Não perdoa. E não recua."
+            </p>
+        </div>
+        
+        <div style="background: rgba(219, 9, 9, 0.1); padding: 1.8rem; border-radius: 10px; border-left: 4px solid #db0909; margin-top: 2.5rem;">
+            <h3 style="color: #db0909; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span></span> AVISO TÁTICO
+            </h3>
+            <p style="color: var(--text-secondary); line-height: 1.7;">
+                Nossas ferramentas são desenvolvidas para fins defensivos e de contra-inteligência contra criminosos digitais. 
+                Não nos responsabilizamos por uso indevido. Lutamos contra predadores, não nos tornamos eles.
+                <strong style="color: #db0909; display: block; margin-top: 0.8rem;">
+                    Use com responsabilidade. Conheça as leis da sua jurisdição. Preserve sempre a ética hacker.
+                </strong>
+            </p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="#" class="btn" data-section="products" style="background: linear-gradient(to right, #db0909, #2f09db); padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: bold; border: none; box-shadow: 0 4px 8px rgba(219, 9, 9, 0.3);">
+                ACESSAR ARSENAL COMPLETO
+            </a>
+        </div>
+    </div>
+</section>
+
+    <section id="products" class="section">
+        <h2 class="section-title">Nossos Produtos</h2>
+        
+        <div class="products-grid">
+            <!-- Grabber -->
+            <div class="product-card" data-product="grabber">
+                <div class="product-image-container">
+                    <img class="product-image" src="img/grabber.png" alt="Grabber">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Grabber</h3>
+                    <p class="product-description">
+                        Ferramenta avançada para coleta de dados sensíveis com execução silenciosa.
+                    </p>
+                    <div class="product-price">R$ 99,90</div>
+                    <a href="#" class="btn preview-btn">Ver Detalhes</a>
+                </div>
+            </div>
+            
+            <!-- Site Personalizado -->
+            <div class="product-card" data-product="site">
+                <div class="product-image-container">
+                    <img class="product-image" src="img/site.png" alt="Site Personalizado">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Site Personalizado</h3>
+                    <p class="product-description">
+                        Sites estáticos de alto desempenho, otimizados para SEO e performance.
+                    </p>
+                    <div class="product-price">R$ 89,90</div>
+                    <a href="#" class="btn preview-btn">Ver Detalhes</a>
+                </div>
+            </div>
+            
+            <!-- Bot Raid Server -->
+            <div class="product-card" data-product="nuke">
+                <div class="product-image-container">
+                    <img class="product-image" src="img/nuke.png" alt="Bot Raid Server">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bot Raid Server</h3>
+                    <p class="product-description">
+                        Programa automatizado para realizar operações específicas em servidores.
+                    </p>
+                    <div class="product-price">R$ 75,00</div>
+                    <a href="#" class="btn preview-btn">Ver Detalhes</a>
+                </div>
+            </div>
+            
+            <!-- Tracker -->
+            <div class="product-card" data-product="tracker">
+                <div class="product-image-container">
+                    <img class="product-image" src="img/tracker.png" alt="Tracker">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tracker</h3>
+                    <p class="product-description">
+                        Ferramenta para rastreamento de informações em múltiplas plataformas.
+                    </p>
+                    <div class="product-price">R$ 29,90</div>
+                    <a href="#" class="btn preview-btn">Ver Detalhes</a>
+                </div>
+            </div>
+            
+            <!-- Bot Clone Server -->
+            <div class="product-card" data-product="clone">
+                <div class="product-image-container">
+                    <img class="product-image" src="img/clone.png" alt="Bot Clone Server">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bot Clone Server</h3>
+                    <p class="product-description">
+                        Ferramenta para clonar servidores de forma rápida e prática.
+                    </p>
+                    <div class="product-price">R$ 24,90</div>
+                    <a href="#" class="btn preview-btn">Ver Detalhes</a>
+                </div>
+            </div>
+            
+            <!-- Token Discord Login -->
+            <div class="product-card" data-product="token">
+                <div class="product-image-container">
+                    <img class="product-image" src="img/token.png" alt="Token Discord Login">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Token Discord Login</h3>
+                    <p class="product-description">
+                        Gerenciamento e acesso seguro a contas Discord através de tokens.
+                    </p>
+                    <div class="product-price">R$ 49,90</div>
+                    <a href="#" class="btn preview-btn">Ver Detalhes</a>
+                </div>
+            </div>
+            
+            <!-- Wallpaper and Thumbnails -->
+            <div class="product-card" data-product="wallpaper">
+                <div class="product-image-container">
+                    <img class="product-image" src="img/wallpaper.png" alt="Wallpaper and Thumbnails">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Wallpaper & Thumbnails</h3>
+                    <p class="product-description">
+                        Artes exclusivas e personalizadas para diversos usos digitais.
+                    </p>
+                    <div class="product-price">R$ 14,90 - 39,90</div>
+                    <a href="#" class="btn preview-btn">Ver Detalhes</a>
+                </div>
+            </div>
+            
+            <!-- Loja Discord Pronta -->
+            <div class="product-card" data-product="loja">
+                <div class="product-image-container">
+                    <img class="product-image" src="img/loja.png" alt="Loja Discord Pronta">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Loja Discord Pronta</h3>
+                    <p class="product-description">
+                        Sistema completo de loja virtual para servidores Discord.
+                    </p>
+                    <div class="product-price">R$ 149,90</div>
+                    <a href="#" class="btn preview-btn">Ver Detalhes</a>
+                </div>
+            </div>
+            
+            <!-- Painel S0M4L14 -->
+            <div class="product-card" data-product="painel">
+                <div class="product-image-container">
+                    <img class="product-image" src="img/VideoCapture 2025-08-19 11.05.23.png" alt="Painel S0M4L14">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">!P41N3LS0M4L14!</h3>
+                    <p class="product-description">
+                        Painel completo com todas as ferramentas essenciais para automação.
+                    </p>
+                    <div class="product-price">R$ 249,90</div>
+                    <a href="#" class="btn preview-btn">Ver Detalhes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="productModal" class="product-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalProductTitle">Nome do Produto</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalProductImage" src="" alt="Preview do Produto">
+                </div>
+                <div class="modal-details">
+                    <p class="modal-description" id="modalProductDescription"></p>
+                    <ul class="modal-features" id="modalProductFeatures"></ul>
+                    <div class="modal-price" id="modalProductPrice"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn modal-btn" id="modalProductLink">Comprar Agora</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="fab-container">
+
+        <a href="http://discord.gg/AGsJaVAWFR" class="fab" target="_blank" title="Discord">
+            <i class="fab fa-discord"></i>
+            <span class="tooltip">Discord</span>
+        </a>
+        <a href="https://t.me/s0m4l14p41n3l" class="fab" target="_blank" title="Telegram">
+            <i class="fab fa-telegram"></i>
+            <span class="tooltip">Telegram</span>
+        </a>
+    </div>
+
+    <footer>
+        <div class="copyright">
+            &copy; 2025 S0M4L14 ST0R3. Todos os direitos reservados!
+        </div>
+        <div class="copyright2">
+            "Se é impossível pra muitos, é só questão de tempo pra mim."
+        </div>
+    </footer>
+
+    <script>        // Dados dos produtos
+        const products = {
+            grabber: {
+                title: "Grabber",
+                image: "img/grabber.png",
+                description: "Um grabber malicioso é uma ferramenta ou software projetado para coletar dados sensíveis de outras pessoas sem autorização. Esses dados podem incluir senhas, tokens, informações de contas, dados bancários, cookies e outras informações privadas.",
+                features: [
+                    "Roubo de credenciais: Captura logins e senhas de sites ou aplicativos",
+                    "Coleta de dados de tokens: Pode pegar tokens de Discord",
+                    "Execução silenciosa: Funciona em segundo plano, sem que a vítima perceba",
+                    "Grabbers maliciosos usam engenharia social para enganar a vítima"
+                ],
+                price: "R$ 99,90",
+                link: "public/grabber.html"
+            },
+            site: {
+                title: "Site Personalizado",
+                image: "img/site.png",
+                description: "Sites estáticos de alto desempenho, perfeitos para quem busca velocidade, segurança e baixo custo de manutenção. Não exigem APIs.",
+                features: [
+                    "Design responsivo e moderno",
+                    "Otimizado para SEO e performance",
+                    "Carregamento ultrarrápido",
+                    "Compatível com todos os navegadores",
+                    "Integração com mensageiros para contato",
+                    "Entrega dos arquivos prontos para hospedagem"
+                ],
+                price: "R$ 89,90",
+                link: "public/site.html"
+            },
+            nuke: {
+                title: "Bot Raid Server",
+                image: "img/nuke.png",
+                description: "Um raid bot de Discord é um programa automatizado que realiza ataques em servidores Discord.",
+                features: [
+                    "Envia spam em canais de texto ou DMs",
+                    "Realiza pings repetitivos aos usuários",
+                    "Usa múltiplas contas para evitar bloqueios",
+                    "Pode alterar canais ou permissões se tiver privilégios",
+                    "Objetivo: sobrecarregar e causar caos em servidores"
+                ],
+                price: "R$ 75,00",
+                link: "public/nuke.html"
+            },
+            tracker: {
+                title: "Tracker Telefone, IP e Username",
+                image: "img/tracker.png",
+                description: "O Tracker é uma ferramenta avançada que coleta informações essenciais sobre usuários do Discord e outras plataformas. Ele permite identificar números de telefone, endereços de IP e usernames, fornecendo dados estratégicos para análise, segurança e monitoramento digital.",
+                features: [
+                    "PhoneLookup: valida números de telefone e identifica país, região, operadora e fuso horário",
+                    "IP Geolocation: localiza IPs mostrando país, cidade, coordenadas, ISP e organização",
+                    "Username Tracker: verifica presença de usernames em múltiplas plataformas",
+                    "Geração de relatórios detalhados para análise estratégica",
+                    "Interface simples e interativa para uso direto no terminal"
+                ],
+                price: "R$ 29,90",
+                link: "public/tracker.html"
+            },
+            clone: {
+                title: "Bot Clone Server",
+                image: "img/clone.png",
+                description: "O Bot Clone Server é uma ferramenta avançada para Discord que permite clonar servidores de forma rápida e prática. Ele copia canais, categorias, permissões e cargos, garantindo uma duplicação fiel da estrutura original do servidor.",
+                features: [
+                    "Copia canais e categorias",
+                    "Replica configurações de permissões",
+                    "Clona configurações de chamadas",
+                    "Interface amigável"
+                ],
+                price: "R$ 24,90",
+                link: "public/clone.html"
+            },
+            token: {
+                title: "Token Discord Login",
+                image: "img/token.png",
+                description: "O Token Discord Login é uma ferramenta avançada para gerenciamento e acesso a contas Discord de forma rápida e segura. Ideal para administradores, desenvolvedores e profissionais que precisam autenticar múltiplas contas ou integrar bots e sistemas automatizados.",
+                features: [
+                    "Login rápido em contas Discord usando tokens válidos",
+                    "Gerenciamento seguro de múltiplos tokens",
+                    "Compatível com bots e scripts automatizados",
+                    "Interface intuitiva e fácil de usar"
+                ],
+                price: "R$ 49,90",
+                link: "public/token.html"
+            },
+            wallpaper: {
+                title: "Wallpaper and Thumbnails",
+                image: "img/wallpaper.png",
+                description: "Nossos Wallpapers e Thumbnails são totalmente personalizados para você. Criamos artes exclusivas que combinam com o seu estilo, seja para deixar o computador mais estiloso ou destacar suas redes sociais e conteúdos. Trabalhamos em Full HD, garantindo qualidade e compatibilidade em qualquer dispositivo.",
+                features: [
+                    "Wallpapers únicos feitos sob medida",
+                    "Thumbnails personalizadas para YouTube, Twitch e redes sociais",
+                    "Designs modernos, criativos e exclusivos",
+                    "Opções de estilos: minimalista, gamer, futurista, dark e mais",
+                    "Entrega rápida e download imediato",
+                    "Atualizações gratuitas por 6 meses"
+                ],
+                price: "R$ 14,90 - 39,90",
+                link: "public/wallpaper-thub.html"
+            },
+            loja: {
+                title: "Loja Discord Pronta",
+                image: "img/loja.png",
+                description: "Sistema completo de loja virtual para seu servidor Discord, com carrinho de compras, histórico de pedidos e integração com pagamentos. Fácil de usar e totalmente automatizado, ideal para quem deseja vender produtos digitais de forma prática.",
+                features: [
+                    "Painel de administração",
+                    "Suporte a múltiplos produtos",
+                    "Notificações automáticas",
+                    "Integração com PayPal e PicPay",
+                    "Sistema de estoque básico",
+                    "Confirmação automática de pedidos"
+                ],
+                price: "R$ 149,90",
+                link: "public/loja.html"
+            },
+            painel: {
+                title: "!P41N3LS0M4L14!",
+                image: "img/VideoCapture 2025-08-19 11.05.23.png",
+                description: "Nosso Painel S0M4L14 oferece todas as ferramentas essenciais para gerenciamento e automação de servidores e bots. Cada função é totalmente personalizada, garantindo controle máximo e eficiência em suas operações digitais, TUDO EM UM SO P41N3L!",
+                features: [
+                    "Construtor de Vírus",
+                    "Nuker com Token",
+                    "Info do Token",
+                    "Entrar com Token",
+                    "Sair com Token",
+                    "Login com Token",
+                    "Token para ID e Brute",
+                    "Raid de Servidor",
+                    "Spammer com Token",
+                    "Deletar Amigos",
+                    "Bloquear Amigos",
+                    "DM em Massa",
+                    "Deletar DMs",
+                    "Mudar Status",
+                    "Mudar Idioma",
+                    "Mudar Casa",
+                    "Mudar Tema",
+                    "Deletar Webhook",
+                    "Nuker com Bot",
+                    "Convite para ID",
+                    "Info do Servidor",
+                    "Spam com Webhook",
+                    "Info de Webhook",
+                    "Login Cookie Roblox",
+                    "Info Usuário Roblox",
+                    "Info ID Roblox"
+                ],
+                price: "R$ 249,90",
+                link: "public/final-p41n3l.html"
+            }
+        };
+
+        // Abrir modal ao clicar no botão de preview
+        document.querySelectorAll('.preview-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const productCard = this.closest('.product-card');
+                const productId = productCard.getAttribute('data-product');
+                openProductModal(productId);
+            });
+        });
+
+        // Fechar modal
+        document.querySelector('.close-modal').addEventListener('click', closeModal);
+
+        // Fechar modal clicando fora dele
+        window.addEventListener('click', function(e) {
+            if (e.target === document.getElementById('productModal')) {
+                closeModal();
+            }
+        });
+
+        // Função para abrir o modal
+        function openProductModal(productId) {
+            const product = products[productId];
+            if (!product) return;
+            
+            document.getElementById('modalProductTitle').textContent = product.title;
+            document.getElementById('modalProductImage').src = product.image;
+            document.getElementById('modalProductDescription').textContent = product.description;
+            document.getElementById('modalProductPrice').textContent = product.price;
+            document.getElementById('modalProductLink').href = product.link;
+            
+            // Preencher características
+            const featuresList = document.getElementById('modalProductFeatures');
+            featuresList.innerHTML = '';
+            product.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresList.appendChild(li);
+            });
+            
+            // Exibir modal
+            document.getElementById('productModal').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Impedir scroll
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Permitir scroll novamente
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            const buttons = document.querySelectorAll('.btn[data-section]');
+            
+            document.getElementById('home').classList.add('active');
+            
+            function changeSection(sectionId) {
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                document.getElementById(sectionId).classList.add('active');
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('nav-active');
+                    if (link.getAttribute('data-section') === sectionId) {
+                        link.classList.add('nav-active');
+                    }
+                });
+                
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    changeSection(sectionId);
+                });
+            });
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    changeSection(sectionId);
+                });
+            });
+            
+            if (window.location.hash) {
+                const sectionId = window.location.hash.substring(1);
+                const targetSection = document.getElementById(sectionId);
+                
+                if (targetSection) {
+                    changeSection(sectionId);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
