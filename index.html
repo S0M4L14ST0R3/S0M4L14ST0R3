@@ -768,7 +768,6 @@
             }
         }
 
-        /* Animações */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -1172,7 +1171,6 @@
         <h2 class="section-title">Nossos Produtos</h2>
         
         <div class="products-grid">
-            <!-- Grabber -->
             <div class="product-card" data-product="grabber">
                 <div class="product-image-container">
                     <img class="product-image" src="img/grabber.png" alt="Grabber">
@@ -1187,7 +1185,6 @@
                 </div>
             </div>
             
-            <!-- Site Personalizado -->
             <div class="product-card" data-product="site">
                 <div class="product-image-container">
                     <img class="product-image" src="img/site.png" alt="Site Personalizado">
@@ -1202,7 +1199,6 @@
                 </div>
             </div>
             
-            <!-- Bot Raid Server -->
             <div class="product-card" data-product="nuke">
                 <div class="product-image-container">
                     <img class="product-image" src="img/nuke.png" alt="Bot Raid Server">
@@ -1217,7 +1213,6 @@
                 </div>
             </div>
             
-            <!-- Tracker -->
             <div class="product-card" data-product="tracker">
                 <div class="product-image-container">
                     <img class="product-image" src="img/tracker.png" alt="Tracker">
@@ -1232,7 +1227,6 @@
                 </div>
             </div>
             
-            <!-- Bot Clone Server -->
             <div class="product-card" data-product="clone">
                 <div class="product-image-container">
                     <img class="product-image" src="img/clone.png" alt="Bot Clone Server">
@@ -1247,7 +1241,6 @@
                 </div>
             </div>
             
-            <!-- Token Discord Login -->
             <div class="product-card" data-product="token">
                 <div class="product-image-container">
                     <img class="product-image" src="img/token.png" alt="Token Discord Login">
@@ -1262,7 +1255,6 @@
                 </div>
             </div>
             
-            <!-- Wallpaper and Thumbnails -->
             <div class="product-card" data-product="wallpaper">
                 <div class="product-image-container">
                     <img class="product-image" src="img/wallpaper.png" alt="Wallpaper and Thumbnails">
@@ -1277,7 +1269,6 @@
                 </div>
             </div>
             
-            <!-- Loja Discord Pronta -->
             <div class="product-card" data-product="loja">
                 <div class="product-image-container">
                     <img class="product-image" src="img/loja.png" alt="Loja Discord Pronta">
@@ -1292,7 +1283,6 @@
                 </div>
             </div>
             
-            <!-- Painel S0M4L14 -->
             <div class="product-card" data-product="painel">
                 <div class="product-image-container">
                     <img class="product-image" src="img/VideoCapture 2025-08-19 11.05.23.png" alt="Painel S0M4L14">
@@ -1352,7 +1342,7 @@
         </div>
     </footer>
 
-    <script>        // Dados dos produtos
+    <script>       
         const products = {
             grabber: {
                 title: "Grabber",
@@ -1503,7 +1493,6 @@
             }
         };
 
-        // Abrir modal ao clicar no botão de preview
         document.querySelectorAll('.preview-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1513,17 +1502,14 @@
             });
         });
 
-        // Fechar modal
         document.querySelector('.close-modal').addEventListener('click', closeModal);
 
-        // Fechar modal clicando fora dele
         window.addEventListener('click', function(e) {
             if (e.target === document.getElementById('productModal')) {
                 closeModal();
             }
         });
 
-        // Função para abrir o modal
         function openProductModal(productId) {
             const product = products[productId];
             if (!product) return;
@@ -1534,7 +1520,6 @@
             document.getElementById('modalProductPrice').textContent = product.price;
             document.getElementById('modalProductLink').href = product.link;
             
-            // Preencher características
             const featuresList = document.getElementById('modalProductFeatures');
             featuresList.innerHTML = '';
             product.features.forEach(feature => {
@@ -1543,15 +1528,13 @@
                 featuresList.appendChild(li);
             });
             
-            // Exibir modal
             document.getElementById('productModal').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Impedir scroll
+            document.body.style.overflow = 'hidden';
         }
 
-        // Função para fechar o modal
         function closeModal() {
             document.getElementById('productModal').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Permitir scroll novamente
+            document.body.style.overflow = 'auto'; 
         }
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
@@ -1608,3 +1591,4 @@
     </script>
 </body>
 </html>
+
